@@ -1,0 +1,29 @@
+@import '../monster/xCSS/base-css';
+
+.statblock.basic-13th-age-item-layout {
+  @include basics;
+
+  .property-container {
+    @include ability-indent;
+
+    &:has(.type) {
+      .property-name {
+        display: none;
+      }
+
+      .statblock-markdown {
+        font-size: large;
+        font-style: normal;
+        font-variant: var(--statblock-section-heading-font-variant);
+        text-transform: capitalize;
+      }
+    }
+
+    &:has(.bonus), &:has(.effect), &:has(.curse) {
+      @include attack-name
+    }
+    &:has(.use), &:has(.quirk), &:has(.cost) {
+      @include trait-name;
+    }
+  }
+}
